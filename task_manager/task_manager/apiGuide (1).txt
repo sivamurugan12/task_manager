@@ -1,0 +1,97 @@
+==============================
+📘 Task Manager API Guide
+==============================
+
+Base URL:
+---------
+http://localhost:5000
+
+-----------------------------
+🧑 USERS
+-----------------------------
+
+1. Create User
+--------------
+POST /users/
+Body (JSON):
+{
+  "name": "Alice",
+  "email": "alice@example.com"
+}
+
+2. List Users
+-------------
+GET /users/
+
+3. Get User by ID
+-----------------
+GET /users/<user_id>
+
+
+-----------------------------
+📁 PROJECTS
+-----------------------------
+
+4. Create Project
+-----------------
+POST /projects/
+Body (JSON):
+{
+  "name": "Project Alpha"
+}
+
+5. List Projects
+----------------
+GET /projects/
+
+6. Get Project by ID
+--------------------
+GET /projects/<project_id>
+
+7. List Tasks Under a Project
+-----------------------------
+GET /projects/<project_id>/tasks
+
+
+-----------------------------
+✅ TASKS
+-----------------------------
+
+8. Create Task
+--------------
+POST /tasks/
+Body (JSON):
+{
+  "title": "Setup environment",
+  "user_id": 1,
+  "project_id": 1,
+  "dependencies": []
+}
+
+9. Get Task by ID
+-----------------
+GET /tasks/<task_id>
+
+10. Update Task Status
+----------------------
+PUT /tasks/<task_id>/status
+Body (JSON):
+{
+  "status": "completed"
+}
+
+11. List Tasks by User
+----------------------
+GET /tasks/user/<user_id>
+
+12. List Tasks by Status
+------------------------
+GET /tasks/status/<status>
+Example: GET /tasks/status/completed
+
+-----------------------------
+⏳ Notes
+-----------------------------
+- Status values: "pending", "in-progress", "completed"
+- Tasks cannot be completed if dependencies are not completed
+- Circular dependencies are automatically blocked

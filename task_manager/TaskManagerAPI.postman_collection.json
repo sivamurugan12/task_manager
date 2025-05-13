@@ -1,0 +1,146 @@
+{
+  "info": {
+    "name": "Task Manager API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create User",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"name\": \"Alice\", \"email\": \"alice@example.com\" }"
+        },
+        "url": {
+          "raw": "http://localhost:5000/users/",
+          "host": [
+            "localhost:5000"
+          ],
+          "path": [
+            "users",
+            ""
+          ]
+        }
+      }
+    },
+    {
+      "name": "List Users",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:5000/users/",
+          "host": [
+            "localhost:5000"
+          ],
+          "path": [
+            "users",
+            ""
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Project",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"name\": \"Project Alpha\" }"
+        },
+        "url": {
+          "raw": "http://localhost:5000/projects/",
+          "host": [
+            "localhost:5000"
+          ],
+          "path": [
+            "projects",
+            ""
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Task",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"title\": \"Setup environment\", \"user_id\": 1, \"project_id\": 1, \"dependencies\": [] }"
+        },
+        "url": {
+          "raw": "http://localhost:5000/tasks/",
+          "host": [
+            "localhost:5000"
+          ],
+          "path": [
+            "tasks",
+            ""
+          ]
+        }
+      }
+    },
+    {
+      "name": "Update Task Status",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"status\": \"completed\" }"
+        },
+        "url": {
+          "raw": "http://localhost:5000/tasks/1/status",
+          "host": [
+            "localhost:5000"
+          ],
+          "path": [
+            "tasks",
+            "1",
+            "status"
+          ]
+        }
+      }
+    },
+    {
+      "name": "List Tasks by Status",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:5000/tasks/status/completed",
+          "host": [
+            "localhost:5000"
+          ],
+          "path": [
+            "tasks",
+            "status",
+            "completed"
+          ]
+        }
+      }
+    }
+  ]
+}

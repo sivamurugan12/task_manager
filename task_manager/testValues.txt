@@ -1,0 +1,82 @@
+==============================
+📘 Task Manager API Test Values
+==============================
+
+-----------------------------
+🧑 USERS
+-----------------------------
+
+User 1:
+{
+  "name": "Bob",
+  "email": "bob@example.com"
+}
+
+User 2:
+{
+  "name": "Carol",
+  "email": "carol@company.com"
+}
+
+-----------------------------
+📁 PROJECTS
+-----------------------------
+
+Project 1:
+{
+  "name": "Website Redesign"
+}
+
+Project 2:
+{
+  "name": "Mobile App Launch"
+}
+
+-----------------------------
+✅ TASKS
+-----------------------------
+
+Task 1 (no dependencies):
+{
+  "title": "Create wireframes",
+  "user_id": 2,
+  "project_id": 1,
+  "dependencies": []
+}
+
+Task 2 (depends on Task 1):
+{
+  "title": "Implement frontend",
+  "user_id": 1,
+  "project_id": 1,
+  "dependencies": [1]
+}
+
+Task 3 (depends on Task 2):
+{
+  "title": "Deploy to staging",
+  "user_id": 2,
+  "project_id": 1,
+  "dependencies": [2]
+}
+
+-----------------------------
+🔁 STATUS UPDATE PAYLOAD
+-----------------------------
+
+{
+  "status": "completed"
+}
+
+-----------------------------
+🧪 SAMPLE API TEST FLOW
+-----------------------------
+
+1. POST /users/ (add Alice, Bob, Carol)
+2. POST /projects/ (add Website Redesign, Mobile App Launch)
+3. POST /tasks/ (add 3 tasks with dependencies)
+4. PUT /tasks/1/status → completed
+5. PUT /tasks/2/status → completed
+6. PUT /tasks/3/status → completed
+7. GET /tasks/user/1 → Bob's tasks
+8. GET /tasks/status/completed → All completed tasks
